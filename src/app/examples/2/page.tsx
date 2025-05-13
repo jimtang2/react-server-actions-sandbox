@@ -1,14 +1,16 @@
-import Form from "next/form";
-import {Button2} from "@/components/button"
+"use client"
 import {submitFormAction} from "@/lib/actions"
 
 export default function Home() {
+
+  const handleOnClick = (event: React.SyntheticEvent<HTMLElement>) => {
+    let formData = new FormData(event.target.form)
+    submitFormAction(formData)
+  }
+
   return (
     <main>
-      <p>Server action => button props</p>
-      <p></p>
-
-      <Form action={() => {}}>
+      <form>
         <label htmlFor="subject">Subject</label>
         <input type="text" name="subject" defaultValue="abc" required />
 
@@ -18,8 +20,8 @@ export default function Home() {
         <label htmlFor="email">E-mail</label>
         <input type="text" name="email" required defaultValue="abc@def" />
 
-        <Button2 action={submitFormAction} />
-      </Form>
+        <button onClick={handleOnClick} type="button">Submit</button>
+      </form>
 
     </main>
   );

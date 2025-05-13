@@ -15,7 +15,7 @@ export default function Home() {
         <label htmlFor="email">E-mail</label>
         <input type="text" name="email" className="mb-4" required defaultValue="abc@def" />
 
-        <button className="bg-blue-500" >Send</button>
+        <button>Submit</button>
       </Form>
 
     </main>
